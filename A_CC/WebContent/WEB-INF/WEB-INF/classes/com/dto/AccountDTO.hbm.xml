@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.dto" catalog="assignmentaccount">
+	<class name="AccountDTO" table="ACCOUNT">
+		<id name="id" column="ID">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="balance" column="BALANCE"></property>
+		<property name="type" column="TYPE"></property>
+		<property name="openDate" column="OPENDATE"></property>
+		<property name="lastAccessTime" column="LASTACCESSTIME"></property>
+		<property name="lockSummery" column="LOCKSUMMERY"></property>
+	</class>
+</hibernate-mapping>

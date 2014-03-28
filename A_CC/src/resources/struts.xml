@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="true">
+	</constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default" extends="tiles-default" namespace="/user">
+		<interceptors>
+			<interceptor name="frtCtl" class="com.interceptor.FrontCtl" />
+			<interceptor-stack name="FrontCtl">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="frtCtl"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="FrontCtl"></default-interceptor-ref>
+		<global-results>
+			<result name="logout" type="tiles">Login</result>
+			<result name="errorPage" type="tiles">Error</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="errorPage"
+				exception="java.lang.Exception">
+			</exception-mapping>
+		</global-exception-mappings>
+
+		<action name="d_*" class="com.action.{1}Action"
+			method="input">
+			<result name="success" type="tiles">{1}</result>
+			<result name="input" type="tiles">{1}</result>
+		</action>
+
+		<action name="Login" class="com.action.LoginAction">
+			<result name="success" type="tiles">Login</result>
+			<result name="loggedIn" type="tiles">Welcome</result>
+			<result name="changepassword" type="tiles">
+				ChangePassword
+			</result>
+			<result name="input" type="tiles">Login</result>
+			<result name="notLoggedIN" type="tiles">Login</result>
+			<result name="error" type="tiles">Login</result>
+		</action>
+
+		<action name="ForgotPassword"
+			class="com.action.ForgotPasswordAction">
+			<result name="success" type="tiles">ForgotPassword</result>
+			<result name="passwordSend" type="tiles">
+				ForgotPassword
+			</result>
+			<result name="invalidEmailId" type="tiles">
+				ForgotPassword
+			</result>
+			<result name="input" type="tiles">ForgotPassword</result>
+		</action>
+
+		<action name="User" class="com.action.UserAction">
+			<result name="success" type="tiles">Registration</result>
+			<result name="add" type="tiles">Login</result>
+			<result name="input" type="tiles">User</result>
+			<result name="NotAdded" type="tiles">User</result>
+		</action>
+
+		<action name="ChangePassword"
+			class="com.action.ChangePasswordAction">
+			<interceptor-ref name="FrontCtl"></interceptor-ref>
+			<result name="success" type="tiles">ChangePassword</result>
+			<result name="passwordChange" type="tiles">Welcome</result>
+			<result name="passwordNotChange" type="tiles">
+				ChangePassword
+			</result>
+			<result name="input" type="tiles">ChangePassword</result>
+		</action>
+		<action name="Welcome" class="com.action.WelcomeAction">
+			<interceptor-ref name="FrontCtl"></interceptor-ref>
+			<result name="success" type="tiles">Welcome</result>
+			<result name="input" type="tiles">Welcome</result>
+		</action>
+		<action name="UserList" class="com.action.UserListAction">
+			<interceptor-ref name="FrontCtl"></interceptor-ref>
+			<result name="success" type="tiles">UserList</result>
+			<result name="input" type="tiles">UserList</result>
+		</action>
+		<action name="Fundtransfer"
+			class="com.action.FundTransferAction">
+			<interceptor-ref name="FrontCtl"></interceptor-ref>
+			<result name="fundTransfer" type="tiles">
+				FundTransfer
+			</result>
+			<result name="intput" type="tiles">FundTransfer</result>
+		</action>
+		<action name="MyProfile" class="com.action.MyProfileAction">
+			<interceptor-ref name="FrontCtl"></interceptor-ref>
+			<result name="success" type="tiles">MyProfile</result>
+			<result name="Edited" type="tiles">Welcome</result>
+			<result name="input" type="tiles">MyProfile</result>
+		</action>
+	</package>
+</struts>

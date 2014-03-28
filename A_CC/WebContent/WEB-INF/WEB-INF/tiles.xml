@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="BaseLayout" template="/BaseLayout.jsp">
+		<put-attribute name="header" value="/Header.jsp" />
+		<put-attribute name="menu" value="/Menu.jsp" />
+		<put-attribute name="footer" value="/Footer.jsp" />
+		<put-attribute name="body" value="/Body.jsp" />
+	</definition>
+
+	<definition name="Login" extends="BaseLayout">
+		<put-attribute name="title" value="LoginForm" />
+		<put-attribute name="body" value="/Login.jsp" />
+	</definition>
+	<definition name="ForgotPassword" extends="BaseLayout">
+		<put-attribute name="title" value="Forgot password" />
+		<put-attribute name="body" value="/ForgotPassword.jsp" />
+	</definition>
+	<definition name="Error" extends="BaseLayout">
+		<put-attribute name="title" value="ErrorPage" />
+		<put-attribute name="body" value="/Error.jsp" />
+	</definition>
+	<definition name="ChangePassword" extends="BaseLayout">
+		<put-attribute name="title" value="ChangePassword" />
+		<put-attribute name="body" value="/ChangePassword.jsp" />
+	</definition>
+
+	<definition name="User" extends="BaseLayout">
+		<put-attribute name="title" value="Registration Form" />
+		<put-attribute name="body" value="/User.jsp" />
+	</definition>
+
+	<definition name="FundTransfer" extends="BaseLayout">
+		<put-attribute name="title" value="Fund Transfer" />
+		<put-attribute name="body" value="/FundTransfer.jsp" />
+	</definition>
+
+	<definition name="Welcome" extends="BaseLayout">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/Welcome.jsp" />
+	</definition>
+
+
+	<definition name="MyProfile" extends="BaseLayout">
+		<put-attribute name="title" value="My Profile" />
+		<put-attribute name="body" value="/MyProfile.jsp" />
+	</definition>
+
+	<definition name="UserList" extends="BaseLayout">
+		<put-attribute name="title" value="User List" />
+		<put-attribute name="body" value="/UserList.jsp" />
+	</definition>
+
+
+</tiles-definitions>
+
